@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔥 The Tlingit Tribe 🔥</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=Teko:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fire: #CC3000;
+    --ember: #E8560A;
+    --gold: #C9820A;
+    --cream: #F5EDD6;
+    --bark: #3B1F0A;
+    --moss: #2D4A1A;
+    --slate: #1A2635;
+    --copper: #B87333;
+    --fog: #8BAAB8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--bark);
+    color: var(--cream);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 18px;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: 
+      radial-gradient(ellipse at 50% 100%, rgba(204,48,0,0.5) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 50%, rgba(45,74,26,0.4) 0%, transparent 50%),
+      linear-gradient(160deg, #0D0F08 0%, #1A0A03 40%, #2B1005 100%);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9820A' fill-opacity='0.04'%3E%3Cpath d='M40 0L80 40L40 80L0 40z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.8;
+  }
+
+  .flames {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to top, rgba(204,48,0,0.6), transparent);
+    pointer-events: none;
+  }
+
+  .flame-particles {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .flame {
+    position: absolute;
+    bottom: -10px;
+    width: 30px;
+    height: 80px;
+    border-radius: 50% 50% 30% 30%;
+    animation: flicker 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes flicker {
+    0% { transform: scaleY(1) scaleX(1) translateY(0); opacity: 0.9; }
+    100% { transform: scaleY(1.3) scaleX(0.8) translateY(-20px); opacity: 0.6; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    animation: fadeDown 1.2s ease both;
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Teko', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    opacity: 0.85;
+  }
+
+  .hero-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    font-weight: 900;
+    line-height: 1.05;
+    background: linear-gradient(135deg, #F5EDD6 0%, #C9820A 50%, #CC3000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 0 30px rgba(232,86,10,0.5));
+  }
+
+  .hero-sub {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--fog);
+    margin-bottom: 3rem;
+    letter-spacing: 0.05em;
+  }
+
+  .scroll-cue {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gold);
+    opacity: 0.6;
+    font-family: 'Teko', sans-serif;
+    letter-spacing: 0.3em;
+    font-size: 0.8rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .scroll-cue span { font-size: 1.5rem; }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; transform: translateY(0); }
+    50% { opacity: 0.9; transform: translateY(6px); }
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(20, 10, 3, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201,130,10,0.3);
+    padding: 0 2rem;
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  nav a {
+    font-family: 'Teko', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,237,214,0.6);
+    text-decoration: none;
+    padding: 1.2rem 1.2rem;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+
+  nav a:hover {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  /* MAIN LAYOUT */
+  main { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+  /* SECTION STYLES */
+  .section {
+    padding: 5rem 0;
+    border-bottom: 1px solid rgba(201,130,10,0.15);
+    animation: fadeIn 0.8s ease both;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-label {
+    font-family: 'Teko', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--copper);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--copper), transparent);
+    max-width: 200px;
+    opacity: 0.5;
+  }
+
+  .section-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--fire);
+    margin-bottom: 2rem;
+    line-height: 1.2;
+  }
+
+  .section-body {
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: rgba(245,237,214,0.88);
+    max-width: 720px;
+  }
+
+  .section-body strong {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* TWO-COLUMN LAYOUT */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  @media (max-width: 700px) {
+    .two-col { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+  /* CARD */
+  .card {
+    background: linear-gradient(135deg, rgba(59,31,10,0.6), rgba(26,38,53,0.3));
+    border: 1px solid rgba(201,130,10,0.2);
+    border-radius: 2px;
+    padding: 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--fire), var(--gold));
+  }
+
+  /* MYTH SECTION */
+  .myth-block {
+    background: linear-gradient(135deg, rgba(26,38,53,0.7), rgba(45,74,26,0.2));
+    border: 1px solid rgba(139,170,184,0.2);
+    border-radius: 2px;
+    padding: 3rem;
+    position: relative;
+    font-style: italic;
+  }
+
+  .myth-block::before {
+    content: '"';
+    position: absolute;
+    top: -0.5rem;
+    left: 1.5rem;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 8rem;
+    color: var(--fire);
+    opacity: 0.15;
+    line-height: 1;
+  }
+
+  .myth-title {
+    font-family: 'Teko', sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .myth-block p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: rgba(245,237,214,0.82);
+    margin-bottom: 1rem;
+  }
+
+  /* FUN FACTS GRID */
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .fact-card {
+    background: rgba(59,31,10,0.4);
+    border: 1px solid rgba(201,130,10,0.15);
+    padding: 1.5rem;
+    border-radius: 2px;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .fact-card:hover {
+    border-color: rgba(204,48,0,0.5);
+    transform: translateY(-3px);
+  }
+
+  .fact-num {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--fire);
+    opacity: 0.4;
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 2.5rem;
+  }
+
+  .fact-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(245,237,214,0.78);
+  }
+
+  /* DIVIDER */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 4rem 0;
+    opacity: 0.3;
+  }
+
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .divider-icon { color: var(--gold); font-size: 1.2rem; }
+
+  /* FOOTER */
+  footer {
+    background: rgba(10, 5, 1, 0.8);
+    border-top: 1px solid rgba(201,130,10,0.2);
+    text-align: center;
+    padding: 3rem 2rem;
+    color: rgba(245,237,214,0.4);
+    font-family: 'Teko', sans-serif;
+    letter-spacing: 0.2em;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+  }
+
+  footer strong { color: var(--copper); }
+
+  /* TOTEM DECORATION */
+  .totem-bar {
+    width: 4px;
+    height: 120px;
+    background: linear-gradient(to bottom, var(--fire), var(--gold), var(--moss));
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .location-map {
+    background: linear-gradient(135deg, rgba(45,74,26,0.15), rgba(26,38,53,0.4));
+    border: 1px solid rgba(139,170,184,0.2);
+    padding: 2rem;
+    border-radius: 2px;
+  }
+
+  .location-map h3 {
+    font-family: 'Teko', sans-serif;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--fog);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .stat {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: rgba(59,31,10,0.4);
+    border: 1px solid rgba(201,130,10,0.15);
+  }
+
+  .stat-num {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--fire);
+    display: block;
+  }
+
+  .stat-label {
+    font-family: 'Teko', sans-serif;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--fog);
+    display: block;
+    margin-top: 0.3rem;
+  }
+
+  /* VIDEOS */
+  .videos-section {
+    padding: 5rem 0;
+    border-bottom: 1px solid rgba(201,130,10,0.15);
+  }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 640px) {
+    .video-grid { grid-template-columns: 1fr; }
+  }
+
+  .video-wrapper {
+    position: relative;
+    padding-top: 56.25%;
+    background: #000;
+    border: 1px solid rgba(201,130,10,0.2);
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+
+  .video-caption {
+    font-family: 'Teko', sans-serif;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: var(--fog);
+    margin-top: 0.75rem;
+    opacity: 0.7;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="flame-particles">
+    <div class="flame" style="left:5%;background:radial-gradient(ellipse,#ff6600,#cc3300,transparent);animation-delay:0s;animation-duration:1.8s"></div>
+    <div class="flame" style="left:15%;background:radial-gradient(ellipse,#ff8800,#cc4400,transparent);animation-delay:0.3s;height:60px;width:20px"></div>
+    <div class="flame" style="left:25%;background:radial-gradient(ellipse,#ff5500,#cc2200,transparent);animation-delay:0.7s;animation-duration:2.2s"></div>
+    <div class="flame" style="left:40%;background:radial-gradient(ellipse,#ff7700,#cc3300,transparent);animation-delay:0.1s;height:100px;width:40px"></div>
+    <div class="flame" style="left:55%;background:radial-gradient(ellipse,#ff6600,#cc3300,transparent);animation-delay:0.5s;animation-duration:1.6s"></div>
+    <div class="flame" style="left:68%;background:radial-gradient(ellipse,#ff9900,#cc5500,transparent);animation-delay:0.9s;height:70px;width:25px"></div>
+    <div class="flame" style="left:78%;background:radial-gradient(ellipse,#ff5500,#cc2200,transparent);animation-delay:0.2s;animation-duration:2s"></div>
+    <div class="flame" style="left:88%;background:radial-gradient(ellipse,#ff7700,#cc3300,transparent);animation-delay:0.6s;height:90px;width:35px"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Indigenous People of the Pacific Northwest</p>
+    <h1 class="hero-title">🔥 The Tlingit Tribe 🔥</h1>
+    <p class="hero-sub">Keepers of the Raven & Eagle — Alaska's Ancient Coastal People</p>
+    <div class="scroll-cue">
+      <span>↓</span>
+      DISCOVER
+    </div>
+  </div>
+  <div class="flames"></div>
+</section>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#location">Location</a>
+    <a href="#climate">Climate</a>
+    <a href="#customs">Customs</a>
+    <a href="#clothing">Clothing</a>
+    <a href="#food">Food</a>
+    <a href="#shelter">Shelter</a>
+    <a href="#tools">Tools</a>
+    <a href="#trade">Trade</a>
+    <a href="#myths">Myths</a>
+    <a href="#facts">Fun Facts</a>
+    <a href="#videos">Videos</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- LOCATION -->
+  <section class="section" id="location">
+    <p class="section-label">Geography</p>
+    <h2 class="section-title">Location</h2>
+    <div class="two-col">
+      <div class="section-body">
+        <p>The Tlingit tribe lives in <strong>southeastern Alaska</strong>, mainly in the Alaska Panhandle. Their land includes many islands and a small part of the mainland.</p>
+        <br>
+        <p>Important Tlingit cities are <strong>Juneau</strong>, <strong>Sitka</strong>, and <strong>Ketchikan</strong>. The Tlingit territory stretches along the coast and nearby islands in the Pacific Ocean.</p>
+      </div>
+      <div class="location-map">
+        <h3>Territory at a Glance</h3>
+        <div class="stat-row">
+          <div class="stat">
+            <span class="stat-num">43K</span>
+            <span class="stat-label">Square Miles</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">10K+</span>
+            <span class="stat-label">Years Inhabited</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">3</span>
+            <span class="stat-label">Major Cities</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIMATE -->
+  <section class="section" id="climate">
+    <p class="section-label">Environment</p>
+    <h2 class="section-title">Climate</h2>
+    <div class="two-col">
+      <div class="section-body">
+        <p>The Tlingit region has a <strong>temperate rainforest climate</strong>. It gets a lot of rain, with about <strong>54 inches</strong> falling each year. Winters are cool, with temperatures around <strong>30°F</strong>, while summers are mild, reaching about <strong>60°F</strong>.</p>
+        <br>
+        <p>The weather is often misty and damp, but the temperatures don't change much between seasons. This climate supports <strong>lush forests and diverse marine life</strong>.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1rem;">
+        <div class="card">
+          <div class="section-label" style="margin-bottom:0.5rem">Winter</div>
+          <p style="font-size:1rem; color:var(--fog)">~30°F — Cool, misty, damp conditions year-round</p>
+        </div>
+        <div class="card">
+          <div class="section-label" style="margin-bottom:0.5rem">Summer</div>
+          <p style="font-size:1rem; color:var(--fog)">~60°F — Mild temperatures, lush temperate rainforest</p>
+        </div>
+        <div class="card">
+          <div class="section-label" style="margin-bottom:0.5rem">Rainfall</div>
+          <p style="font-size:1rem; color:var(--fog)">~54 inches annually — Supports rich biodiversity</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMS -->
+  <section class="section" id="customs">
+    <p class="section-label">Culture</p>
+    <h2 class="section-title">Customs & Traditions</h2>
+    <div class="section-body">
+      <p>Tlingit people are divided into two main groups called <strong>moieties: Raven and Eagle</strong>. Each moiety has different clans that trace their family lines through mothers — a <strong>matrilineal</strong> society. They hold special events called <strong>potlatches</strong>, where they give gifts to guests. These gatherings are important for showing social status and building community ties.</p>
+      <br>
+      <p>Tlingit people also have a rich tradition of <strong>storytelling and art</strong>, including totem pole carving and basket weaving.</p>
+    </div>
+  </section>
+
+  <!-- CLOTHING -->
+  <section class="section" id="clothing">
+    <p class="section-label">Dress</p>
+    <h2 class="section-title">Traditional Clothing</h2>
+    <div class="two-col">
+      <div class="section-body">
+        <p>Tlingit people traditionally wore clothes made from <strong>animal skins and furs</strong>. They created special robes called <strong>Chilkat Robes</strong>, woven from mountain goat wool and cedar bark.</p>
+        <br>
+        <p>They also wore copper shields called <strong>Tináa</strong> as necklaces to show wealth and status. Their clothing often had beautiful designs that were meaningful to their culture, including <strong>clan symbols and nature motifs</strong>.</p>
+      </div>
+      <div class="card" style="align-self:start">
+        <div class="section-label" style="margin-bottom:1rem">Key Garments</div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.8rem;">
+          <li style="color:rgba(245,237,214,0.8); font-size:1rem; padding-left:1rem; border-left:2px solid var(--fire)"><strong style="color:var(--gold)">Chilkat Robes</strong> — Woven from mountain goat wool & cedar bark</li>
+          <li style="color:rgba(245,237,214,0.8); font-size:1rem; padding-left:1rem; border-left:2px solid var(--gold)"><strong style="color:var(--gold)">Tináa</strong> — Copper shields worn as status symbols</li>
+          <li style="color:rgba(245,237,214,0.8); font-size:1rem; padding-left:1rem; border-left:2px solid var(--copper)"><strong style="color:var(--gold)">Animal Furs</strong> — Everyday wear for warmth and protection</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOD -->
+  <section class="section" id="food">
+    <p class="section-label">Cuisine</p>
+    <h2 class="section-title">Traditional Food</h2>
+    <div class="section-body">
+      <p>Tlingit traditional food comes from the people who live in Alaska and British Columbia. They mainly eat <strong>seafood</strong>, especially salmon, which they catch using special fishing methods. The Tlingit also gather <strong>shellfish</strong> and sea plants from the ocean.</p>
+      <br>
+      <p>When they hunt animals, they use every part — including bones for soup and organs for nutrition. They also collect <strong>seasonal berries and plants</strong>, making their meals healthy and full of local tastes.</p>
+    </div>
+  </section>
+
+  <!-- SHELTER -->
+  <section class="section" id="shelter">
+    <p class="section-label">Architecture</p>
+    <h2 class="section-title">Shelter & Housing</h2>
+    <div class="two-col">
+      <div class="section-body">
+        <p>Tlingit housing is made from wood, especially from large <strong>cedar trees</strong>. They live in big homes called <strong>longhouses</strong>, which can fit several families and have a fire in the middle for cooking and warmth.</p>
+        <br>
+        <p>Inside, they use things like moss and bark to keep the house warm. The longhouse design shows how families are connected and live together — a reflection of how the Tlingit people are close to <strong>nature and to each other</strong>.</p>
+      </div>
+      <div class="card" style="align-self:start">
+        <div class="section-label" style="margin-bottom:0.8rem">Longhouse Facts</div>
+        <p style="font-size:1rem; line-height:1.7; color:rgba(245,237,214,0.75)">Built from cedar planks • Houses multiple families • Central fire for warmth & cooking • Decorated with intricate clan carvings • Some up to 60 feet long</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section class="section" id="tools">
+    <p class="section-label">Technology</p>
+    <h2 class="section-title">Tools & Natural Resources</h2>
+    <div class="section-body">
+      <p>The Tlingit people used natural resources and tools to help them survive. They made tools from <strong>wood, stone, and copper</strong> for fishing, hunting, and making things. Cedar trees were important for building their homes and making canoes, while <strong>stones were shaped into knives</strong> and other tools.</p>
+      <br>
+      <p>The Tlingit gathered food like salmon, berries, and shellfish from the land and sea. Their understanding of nature helped them create useful tools and find what they needed to live.</p>
+    </div>
+  </section>
+
+  <!-- TRADE -->
+  <section class="section" id="trade">
+    <p class="section-label">Commerce</p>
+    <h2 class="section-title">Trade Items</h2>
+    <div class="section-body">
+      <p>The Tlingit people traded many items to get things they needed but could not find in their area. They exchanged goods like <strong>dried fish, furs from animals, and cedar bark</strong> for items such as caribou skins and copper.</p>
+      <br>
+      <p>Their location near the ocean allowed them to gather seafood, which was a big part of their trade. The Tlingit also traded during certain seasons when they had extra goods to share. This trading helped them <strong>connect with other tribes</strong> and get important resources for their daily lives.</p>
+    </div>
+  </section>
+
+  <!-- MYTHS -->
+  <section class="section" id="myths">
+    <p class="section-label">Oral Tradition</p>
+    <h2 class="section-title">Myths & Legends</h2>
+    <p class="section-body" style="margin-bottom:2rem">Tlingit myths tell stories about animals and spirits that explain natural events and cultural practices.</p>
+    
+    <div class="myth-block">
+      <p class="myth-title">How Raven Brought Light to the World</p>
+      <p>Long ago, the world was dark all the time. Raven, who was both a bird and a powerful spirit, heard that a rich man had light hidden in his house. Raven decided to steal this light to bring it to the world.</p>
+      <p>Raven turned himself into a tiny seed and fell into the water that the rich man's daughter was drinking. She swallowed the seed, and Raven was born as her grandfather's grandson. As a baby, Raven cried until his grandfather gave him the boxes that held the light.</p>
+      <p>Raven opened these boxes one by one, releasing <strong>stars, the moon, and finally the sun</strong> into the sky. With light now in the world, Raven flew away, bringing day and night to everyone.</p>
+    </div>
+  </section>
+
+  <!-- FUN FACTS -->
+  <section class="section" id="facts">
+    <p class="section-label">Did You Know?</p>
+    <h2 class="section-title">Fun Facts</h2>
+    <div class="facts-grid">
+      <div class="fact-card"><div class="fact-num">01</div><p class="fact-text">The Tlingit people have lived in Alaska for over <strong>10,000 years</strong>, making them one of the oldest indigenous groups in the region.</p></div>
+      <div class="fact-card"><div class="fact-num">02</div><p class="fact-text">Tlingit society is divided into two main groups — <strong>Raven (or Crow) and Eagle (or Wolf)</strong>. Traditionally, people from one moiety had to marry from the other.</p></div>
+      <div class="fact-card"><div class="fact-num">03</div><p class="fact-text">The Tlingit are known for their totem poles. Being <strong>"low on the totem pole"</strong> doesn't mean low status — important figures are often at the bottom!</p></div>
+      <div class="fact-card"><div class="fact-num">04</div><p class="fact-text">Tlingit people lived in large wooden <strong>plank houses called clan houses</strong>, which could hold several families and were decorated with intricate carvings.</p></div>
+      <div class="fact-card"><div class="fact-num">05</div><p class="fact-text">They are skilled woodworkers — the <strong>killer whale</strong> carving symbolizes strength and protection in Tlingit culture.</p></div>
+      <div class="fact-card"><div class="fact-num">06</div><p class="fact-text">The Tlingit have a <strong>matrilineal society</strong>, meaning family lines and inheritance are traced through the mother's side.</p></div>
+      <div class="fact-card"><div class="fact-num">07</div><p class="fact-text">They were master traders, traveling far along the coast to exchange <strong>furs, cedar bark, and seafood</strong> with other tribes.</p></div>
+      <div class="fact-card"><div class="fact-num">08</div><p class="fact-text">Traditional Tlingit cuisine relies heavily on salmon, which they preserve through <strong>smoking and drying</strong> techniques.</p></div>
+      <div class="fact-card"><div class="fact-num">09</div><p class="fact-text">The <strong>potlatch</strong> is an important ceremonial gathering involving feasts, dances, and gift-giving to display wealth and social status.</p></div>
+      <div class="fact-card"><div class="fact-num">10</div><p class="fact-text">Tlingit people used massive canoes made from <strong>red cedar — some up to 60 feet long</strong> — for fishing and trading expeditions along the coast.</p></div>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <div class="videos-section" id="videos">
+    <p class="section-label">Watch & Learn</p>
+    <h2 class="section-title">YouTube Videos</h2>
+    <div class="video-grid">
+      <div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/M_PlDkvh_-g" allowfullscreen title="Haida: Indigenous Vikings of Canada"></iframe>
+        </div>
+        <p class="video-caption">Haida: Indigenous "Vikings" of Canada</p>
+      </div>
+      <div>
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/uiTUsTpl8wc" allowfullscreen title="Tlingit Indian History of Southeast Alaska"></iframe>
+        </div>
+        <p class="video-caption">Tlingit Indian History of Southeast Alaska</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>Website made by <strong>Vedant Lakhani</strong> and <strong>Sriharsha Padarthi</strong></p>
+  <p style="margin-top:0.5rem; font-size:0.7rem; opacity:0.5">(he didn't help with the website but he was part of the group sooo...)</p>
+</footer>
+
+</body>
+</html>
